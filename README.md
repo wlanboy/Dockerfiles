@@ -12,3 +12,23 @@ docker run --name cassandra -d -e CASSANDRA_BROADCAST_ADDRESS=127.0.0.1 -e CASSA
 
 ### MySQL
 docker run --name mysqldb -p 3306:3306 -m 200M --memory-swap -1 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=test -e MYSQL_USER=test -e MYSQL_PASSWORD=test -d mysql:8
+
+## Data Flow Server Stack
+### Build
+cd DataFlowServerImage
+docker build -t dataflowserver:1.4.0 . --build-arg JAR_FILE=./target/spring-cloud-dataflow-server-local-1.4.0.RELEASE.jar
+### Start stack
+cd ..
+docker-compose -f DataFlowStack.yml up -d
+### Stop stack
+docker-compose -f DataFlowStack.yml down
+### Output of command
+Creating network "dataflowserverstack_default" with the default driver
+Creating dataflowserverstack_dfszookeeper_1   ... done
+Creating dataflowserverstack_dfskafka_1       ... done
+Creating dataflowserverstack_dfsmysql_1       ... done
+Creating dataflowserverstack_dataflowserver_1 ... done
+### Start working
+Browser: http://localhost:9393/dashboard/#/apps
+### Get into DFS logs
+docker exec -it "dataflowserverstack dataflowserver 1" ls /tmp
