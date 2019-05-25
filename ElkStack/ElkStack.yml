@@ -33,11 +33,11 @@ services:
     depends_on:
       - elasticsearch
   logstash:
-    image: docker.elastic.co/logstash/logstash:6.2.3eeper
+    image: docker.elastic.co/logstash/logstash:6.2.3
     restart: unless-stopped
-    hostname: zooklogstash
+    hostname: logstash  
     volumes:
-          - /git/docker-repository/ELK-Stack/logstash:/usr/share/logstash/pipeline
+          - ./logstash:/usr/share/logstash/pipeline
     deploy:
       resources:
         limits:
@@ -48,3 +48,8 @@ services:
       - 5044:5044
     depends_on:
       - elasticsearch
+
+networks:
+  default:
+    external:
+      name: spring-net
