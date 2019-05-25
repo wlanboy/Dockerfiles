@@ -1,0 +1,58 @@
+version: '3.1'
+
+services:
+  serviceregistry:
+    image: wlanboy/serviceregistry:latest
+    hostname: serviceregistry
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 512M
+    environment:
+      - PORT=8761
+      - DOCKERHOST=${DOCKERHOST}
+    ports:
+      - 8761:8761
+  crudservice:
+    image: wlanboy/crudservice:latest
+    hostname: crudservice
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 512M
+    environment:
+      - PORT=8002
+      - LOGSTASH=logstash:5044
+      - DOCKERHOST=${DOCKERHOST}
+      - EUREKA_ZONE=http://$DOCKERHOST:8761/eureka/
+    ports:
+      - 8002:8002
+    depends_on:
+      - serviceregistry      
+  mirrorservice:
+    image: wlanboy/mirrorservice:latest
+    hostname: mirrorservice
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 512M
+    environment:
+       - PORT=8844
+       - LOGSTASH=logstash:5044
+       - DOCKERHOST=${DOCKERHOST}
+       - EUREKA_ZONE=http://$DOCKERHOST:8761/eureka/
+    ports:
+      - 8844:8844
+    depends_on:
+      - serviceregistry
+
+networks:
+  default:
+    external:
+      name: spring-net
