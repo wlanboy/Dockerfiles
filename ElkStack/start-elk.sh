@@ -1,0 +1,1 @@
+docker-compose -f ElkStack.yml up -d
