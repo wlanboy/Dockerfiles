@@ -1,0 +1,1 @@
+docker run --name postgres -d -p 5432:5432 -v /home/samuel/postgres.sql:/docker-entrypoint-initdb.d/init.sql -e POSTGRES_PASSWORD=spring -e POSTGRES_USER=spring -e POSTGRES_DB=spring postgres:11.4-alpine
