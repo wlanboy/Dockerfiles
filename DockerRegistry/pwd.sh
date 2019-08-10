@@ -1,0 +1,1 @@
+mkdir auth && htpasswd -Bc ./auth/registry.password docker
