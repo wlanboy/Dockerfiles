@@ -1,0 +1,3 @@
+wlanboyservice.com.        IN  SOA dns.wlanboyservice.com. me.wlanboyservice.com. 2019092915 7200 3600 1209600 3600
+dns.wlanboyservice.com.    IN  A   192.168.178.112
+cloudconfig.wlanboyservice.com.    IN  A   192.168.178.112
