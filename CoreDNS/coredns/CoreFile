@@ -1,0 +1,12 @@
+.:53 {
+    forward . 8.8.8.8 9.9.9.9
+    log
+    errors
+}
+
+wlanboyservice.com:53 {
+    file /root/wlanboyservice.db
+    log
+    errors
+    reload
+}
