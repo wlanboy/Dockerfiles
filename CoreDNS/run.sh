@@ -1,1 +1,1 @@
-docker run -d --name coredns --restart=always --volume=/github/DockerFiles/CoreDNS/coredns/:/root/ -p 53:53/udp coredns/coredns -conf /root/Corefile
+docker run -d --name coredns --restart=always --volume=$PWD/coredns/:/root/ -p 53:53/udp coredns/coredns -conf /root/Corefile
