@@ -1,0 +1,15 @@
+http:
+  services:
+    simpleservice:
+      loadBalancer:
+        servers:
+        - url: "http://nuc:8201"
+    mirrorservice:
+      loadBalancer:
+        servers:
+        - url: "http://nuc:8003"
+    cloudconfigservice:
+      loadBalancer:
+        servers:
+        - url: "http://nuc:8888"
+
