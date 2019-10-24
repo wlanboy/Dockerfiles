@@ -1,0 +1,13 @@
+http:
+  middlewares:
+    basicauthentication:
+      basicAuth:
+        users:
+          - "test:$apr1$X4X4/f1/$XVMCs3g0Ff993DhLsxHqW1" 
+          - "test2:$apr1$DIMET5Uu$JJWPKaQ7FVHOBCM8ZmYGh0"
+    stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/simple"
+          - "/mirror"
+          - "/cloudconfig"
