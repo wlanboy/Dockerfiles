@@ -1,0 +1,18 @@
+http:
+  routers:
+    simpleservice-router:
+      rule: "PathPrefix(`/simple`) || Host(`simpleservice.wlanboy.com`)"
+      service: simpleservice
+      middlewares:
+      - stripprefix
+    mirrorservice-router:
+      rule: "PathPrefix(`/mirror`) || Host(`mirrorservice.wlanboy.com`)"
+      service: mirrorservice
+      middlewares:
+      - basicauthentication
+      - stripprefix
+    cloudconfig-router:
+      rule: "PathPrefix(`/cloudconfig`) || Host(`cloudconfig.wlanboy.com`)"
+      service: cloudconfigservice
+      middlewares:
+      - stripprefix
