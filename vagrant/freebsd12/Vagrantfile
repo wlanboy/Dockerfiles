@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/freebsd12"
+  config.vm.hostname = "bsdbox12"
+  config.vm.network "private_network", ip: "10.10.0.60"
+
+  config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
+  config.vm.synced_folder "/config", "/config"
+
+  config.vm.provider "libvirt" do |lib|
+     lib.memory = 1024
+     lib.cpus = 1
+     lib.features = ['acpi', 'apic', 'pae' ]
+     lib.keymap = "de"
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+     freebsd-update fetch
+     freebsd-update install
+     pkg update
+     pkg upgrade
+     env ASSUME_ALWAYS_YES=YES pkg install nano bash 
+     sysrc sshd_enable="YES"
+     sysrc sendmail_enable="NO"
+     sysrc sendmail_submint_enable="NO"
+     sysrc sendmail_outbound_enable="NO"
+     sysrc sendmail_msp_queue_enable="NO"
+  SHELL
+
+end
