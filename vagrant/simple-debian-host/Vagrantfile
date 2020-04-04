@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_IMAGE = "generic/debian9"
+BOX_IMAGE = "generic/debian10"
 
 Vagrant.configure("2") do |config|
   # https://docs.vagrantup.com.
