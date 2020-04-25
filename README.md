@@ -5,6 +5,8 @@ Repository for my docker scripts
 https://github.com/wlanboy/Dockerfiles/tree/master/Artefactory
 * Consul instance
 https://github.com/wlanboy/Dockerfiles/tree/master/Consul
+* VisualStudio Code Server
+https://github.com/wlanboy/Dockerfiles/tree/master/Code-Server
 * CoreDNS
 https://github.com/wlanboy/Dockerfiles/tree/master/CoreDNS
 * CouchBase
