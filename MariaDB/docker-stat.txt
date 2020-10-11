@@ -1,0 +1,2 @@
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+xxxxxxxxxxxx        mariadb             0.19%               62.79MiB / 1.872GiB   3.28%               726B / 0B           0B / 29MB           14
