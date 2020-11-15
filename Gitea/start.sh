@@ -1,0 +1,1 @@
+docker run -d --name gitea --publish 8022:22 --publish 3000:3000 --env DOMAIN=nuclinux --env ROOT_URL=http://nuclinux:3000 --env USER_UID=1000 --env USER_GID=999 --volume /giteadata:/data --volume /etc/timezone:/etc/timezone:ro --volume /etc/localtime:/etc/localtime:ro --restart unless-stopped gitea/gitea:latest
