@@ -1,0 +1,1 @@
+docker run --name mariadb -p 3306:3306 -v /home/wlanboy/data:/var/lib/mysql --net=xpoint --mount type=bind,src=/home/wlanboy/scripts/,dst=/docker-entrypoint-initdb.d/ -e MYSQL_ROOT_PASSWORD=spring -e MYSQL_DATABASE=spring -e MYSQL_USER=spring -e MYSQL_PASSWORD=spring -d --restart unless-stopped mariadb:10.3.10
