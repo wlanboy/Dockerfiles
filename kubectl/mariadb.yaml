@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-deployment
+  labels:
+    app: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+        - name: mariadb
+          image: mariadb
+          ports:
+            - containerPort: 3306
+              name: db-port
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "mariadb"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mariadb
+  name: mariadb-service
+spec:
+  ports:
+  - name: 3306-3306
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: mariadb
+  type: ClusterIP
+status:
+  loadBalancer: {}
+#kubectl apply -f mariadb.yaml
+#kubectl expose deployment mariadb-deployment --type=NodePort --name=mariadb-service-external --port 3306
+#kubectl describe services mariadb-service-external
