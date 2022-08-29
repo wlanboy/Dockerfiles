@@ -6,8 +6,8 @@ mkdir -p ~/pihole/{etc,dns}
 
 docker run -d --name pihole \
     -p 8080:80 -p $MYIP:53:53/tcp -p $MYIP:53:53/udp -p 67:67/udp \
-    -v ./pihole/etc/:/etc/pihole/ \
-    -v ./pihole/dns:/etc/dnsmasq.d/ \
+    -v $HOME/pihole/etc/:/etc/pihole/ \
+    -v $HOME/pihole/dns:/etc/dnsmasq.d/ \
     -e TZ=Europe/Berlin \
     -e ServerIP=$MYIP \
     -e WEBPASSWORD=pihole \
