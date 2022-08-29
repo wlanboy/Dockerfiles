@@ -8,3 +8,4 @@ https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt
 https://phishing.army/download/phishing_army_blocklist_extended.txt
 https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
 https://urlhaus.abuse.ch/downloads/hostfile/
+https://raw.githubusercontent.com/kboghdady/youTube_ads_4_pi-hole/master/youtubelist.txt
