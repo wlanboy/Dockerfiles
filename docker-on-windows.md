@@ -61,4 +61,12 @@ wsl --shutdown
 wsl
 nohup sudo -b dockerd < /dev/null > /home/samuel/dockerd.log 2>&1
 ```
-> you can put that nohup command whereever you want (.bashrc)
+> you can put that nohup command whereever you want (e.g. .bashrc)
+
+## Or you use the new systemd feature of wsl
+```
+cat <<EOF | sudo tee /etc/wsl.conf
+[boot]
+systemd=true
+EOF
+```
