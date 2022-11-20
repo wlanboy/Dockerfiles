@@ -2,6 +2,7 @@
 > All powershell commmands
 
 ## Install WSL2 and prequisits
+Powershell with administator rights
 ```
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
