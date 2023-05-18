@@ -1,2 +1,2 @@
-FROM nginx:1.16.1
+FROM nginx:1.23.3
 COPY fpm.conf /etc/nginx/conf.d/default.conf
