@@ -1,1 +1,1 @@
-docker run --name mariadb -v /mariadb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=spring -e MYSQL_USER=spring -e MYSQL_PASSWORD=spring -d -p 127.0.0.1:3306:3306 --restart unless-stopped mariadb:10.5
+docker run --name mariadb -v /mariadb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=spring -e MYSQL_USER=spring -e MYSQL_PASSWORD=spring -d -p 127.0.0.1:3306:3306 --restart unless-stopped mariadb:11.2
