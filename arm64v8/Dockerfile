@@ -1,4 +1,4 @@
-FROM arm64v8/adoptopenjdk:11.0.6_10-jre-bionic
+FROM arm64v8/eclipse-temurin:21-jre-ubi9-minimal
 VOLUME /config
 VOLUME /tmp
 ARG JAR_FILE
