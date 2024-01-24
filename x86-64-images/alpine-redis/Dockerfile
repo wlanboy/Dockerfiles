@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3
 MAINTAINER wlanboy
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
