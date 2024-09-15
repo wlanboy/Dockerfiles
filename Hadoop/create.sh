@@ -5,3 +5,5 @@ docker run -d --net hadoop --net-alias datanode1 --name datanode1 -h datanode1 -
 docker exec namenode hdfs dfs -chmod -R 777 /
 docker exec namenode hdfs dfs -mkdir /user1
 docker exec namenode hdfs dfs -mkdir /user2
+docker exec namenode dd if=/dev/zero of=/tmp/file.txt bs=1M count=10
+docker exec namenode hdfs dfs -put /tmp/file.txt /user1/file.txt
