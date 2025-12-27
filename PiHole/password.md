@@ -1,4 +1,4 @@
-## create new password
+## Pi Hole new password for web ui
 How to create or change password on Pi Hole Docker container.
 
 ```bash
