@@ -1,8 +1,8 @@
-# Docker on Windows without Docker Desktop
-* https://github.com/wlanboy/Dockerfiles/blob/main/docker-on-windows.md
-
 # Dockerfiles
-Repository for my docker scripts
+Repository for my docker files, scripts and configs
+
+## Docker on Windows without Docker Desktop
+* https://github.com/wlanboy/Dockerfiles/blob/main/docker-on-windows.md
 
 * Local artefactory
 https://github.com/wlanboy/Dockerfiles/tree/master/Artefactory
@@ -51,11 +51,11 @@ https://github.com/wlanboy/Dockerfiles/tree/master/Traefik
 * Let's encrypt containers
 https://github.com/wlanboy/Dockerfiles/tree/master/letsencrypt
 
-# Docker files
+## Docker files
 * arm64v8 Java 11 image
 https://github.com/wlanboy/Dockerfiles/tree/master/arm64v8
 
-# Vagrant images
+## Vagrant images
 * docker enabled debian server
 https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/debianserver
 * FreeBSD instance
@@ -65,6 +65,6 @@ https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/simple-debian-host
 * Debian based Ranger Cluster
 https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/RangerCluster
 
-# KVM
+## KVM
 * virsh kvm Windows 10 client
 https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/windows
