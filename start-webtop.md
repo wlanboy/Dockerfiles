@@ -1,6 +1,7 @@
 # Start webtop instance
+Command to start a Ubuntu based webtop instance. You can now access a Ubuntu Desktop Client through your browser.
 
-```
+```bash
 docker run -d \
   --name=webtop \
   -e PUID=1000 \
@@ -14,5 +15,9 @@ docker run -d \
   --shm-size="2gb" \
   lscr.io/linuxserver/webtop:ubuntu-mate
 ```
-# access instance
+
+## access instance
 * http://127.0.0.1:3000/
+
+## find other versions
+* https://docs.linuxserver.io/images/docker-webtop/#version-tags
