@@ -1,5 +1,6 @@
 # Docker on Windows
-> All powershell commmands
+All powershell commmands to install wsl and a linux container to run docker containers in Windows.
+
 
 ## Install WSL2 and prequisits
 Powershell with administator rights
