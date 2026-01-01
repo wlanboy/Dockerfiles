@@ -30,3 +30,14 @@ uv run git-filter-repo --paths-from-file ../Dockerfiles/keep.txt --force
 git remote add origin https://github.com/wlanboy/Dockerfiles.git
 git push origin main --force
 ```
+## check for large files
+```bash
+git rev-list --objects --all \
+  | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+  | awk '$3 > 50000 && $1 == "blob" {print $0}' \
+  | sort -k3 -n
+
+uv run git-filter-repo --invert-paths --path filename --force
+git remote add origin https://github.com/wlanboy/Dockerfiles.git
+git push origin main --force
+```
