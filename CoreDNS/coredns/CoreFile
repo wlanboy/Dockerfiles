@@ -1,9 +1,14 @@
+# Catch-all Zone: alle DNS-Anfragen die nicht lokal aufgelöst werden können
+# werden an Google (8.8.8.8) und Quad9 (9.9.9.9) weitergeleitet.
 .:53 {
     forward . 8.8.8.8 9.9.9.9
     log
     errors
 }
 
+# Lokale Zone für interne Services unter wlanboyservice.com.
+# Einträge kommen aus der Zone-Datei wlanboyservice.db.
+# "reload" überwacht die Datei und lädt Änderungen ohne Container-Neustart.
 wlanboyservice.com:53 {
     file /root/wlanboyservice.db
     log
