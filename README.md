@@ -1,70 +1,46 @@
 # Dockerfiles
-Repository for my docker files, scripts and configs
+Repository for Docker run scripts, compose files, and infrastructure configs.
 
-## Docker on Windows without Docker Desktop
-* https://github.com/wlanboy/Dockerfiles/blob/main/docker-on-windows.md
+## Guides
+* [Docker on Windows without Docker Desktop](https://github.com/wlanboy/Dockerfiles/blob/main/docker-on-windows.md)
+* [Windows on KVM](https://github.com/wlanboy/Dockerfiles/tree/main/windows-on-kvm)
+* [Webtop — Ubuntu Desktop im Browser](https://github.com/wlanboy/Dockerfiles/blob/main/start-webtop.md)
+* [Let's Encrypt containers](https://github.com/wlanboy/Dockerfiles/tree/main/letsencrypt)
 
-* Local artefactory
-https://github.com/wlanboy/Dockerfiles/tree/master/Artefactory
-* Consul instance
-https://github.com/wlanboy/Dockerfiles/tree/master/Consul
-* VisualStudio Code Server
-https://github.com/wlanboy/Dockerfiles/tree/master/Code-Server
-* CoreDNS
-https://github.com/wlanboy/Dockerfiles/tree/master/CoreDNS
-* CouchBase
-https://github.com/wlanboy/Dockerfiles/tree/master/CouchBase
-* ELK Stack
-https://github.com/wlanboy/Dockerfiles/tree/master/Elk
-* Gogs git server
-https://github.com/wlanboy/Dockerfiles/tree/master/Gogs
-* Hadoop Cluster
-https://github.com/wlanboy/Dockerfiles/tree/master/Hadoop
-* Hazelcast Instance
-https://github.com/wlanboy/Dockerfiles/tree/master/Hazelcast
-* InfluxDB
-https://github.com/wlanboy/Dockerfiles/tree/master/InfluxDB
-* Jenkins Master and Java Build slave
-https://github.com/wlanboy/Dockerfiles/tree/master/JenkinsStack
-* Kafka instance
-https://github.com/wlanboy/Dockerfiles/tree/master/Kafka
-* MariaDB instance
-https://github.com/wlanboy/Dockerfiles/tree/master/MariaDB
-* Memcached instance
-https://github.com/wlanboy/Dockerfiles/tree/master/Memcached
-* MongoDB instance
-https://github.com/wlanboy/Dockerfiles/tree/master/MongoDB
-* NextCloud 
-https://github.com/wlanboy/Dockerfiles/tree/master/Nextcloud
-* Postgres instance
-https://github.com/wlanboy/Dockerfiles/tree/master/Postgres
-* Prometheus stack
-https://github.com/wlanboy/Dockerfiles/tree/master/PromethusStack
-* RabbitMQ instance
-https://github.com/wlanboy/Dockerfiles/tree/master/RabbitMQ
-* Redis
-https://github.com/wlanboy/Dockerfiles/tree/master/Redis
-* Solr
-https://github.com/wlanboy/Dockerfiles/tree/master/Solr
-* Traefik gateway
-https://github.com/wlanboy/Dockerfiles/tree/master/Traefik
-* Let's encrypt containers
-https://github.com/wlanboy/Dockerfiles/tree/master/letsencrypt
+## Infrastructure & Proxies
+* [Traefik gateway](https://github.com/wlanboy/Dockerfiles/tree/main/Traefik)
+* [CoreDNS](https://github.com/wlanboy/Dockerfiles/tree/main/CoreDNS)
+* [Consul service mesh](https://github.com/wlanboy/Dockerfiles/tree/main/Consul)
+* [Docker Registry](https://github.com/wlanboy/Dockerfiles/tree/main/DockerRegistry)
+* [Pi-hole DNS adblocker](https://github.com/wlanboy/Dockerfiles/tree/main/PiHole)
 
-## Docker files
-* arm64v8 Java 11 image
-https://github.com/wlanboy/Dockerfiles/tree/master/arm64v8
+## Databases
+* [MariaDB](https://github.com/wlanboy/Dockerfiles/tree/main/MariaDB)
+* [Postgres](https://github.com/wlanboy/Dockerfiles/tree/main/Postgres)
+* [MongoDB](https://github.com/wlanboy/Dockerfiles/tree/main/MongoDB)
+* [CouchBase](https://github.com/wlanboy/Dockerfiles/tree/main/CouchBase)
+* [InfluxDB](https://github.com/wlanboy/Dockerfiles/tree/main/InfluxDB)
+* [Solr](https://github.com/wlanboy/Dockerfiles/tree/main/Solr)
 
-## Vagrant images
-* docker enabled debian server
-https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/debianserver
-* FreeBSD instance
-https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/freebsd12
-* Debian client
-https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/simple-debian-host
-* Debian based Ranger Cluster
-https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/RangerCluster
+## Messaging & Streaming
+* [Kafka](https://github.com/wlanboy/Dockerfiles/tree/main/Kafka)
+* [RabbitMQ](https://github.com/wlanboy/Dockerfiles/tree/main/RabbitMQ)
+* [Valkey (Redis-compatible cache)](https://github.com/wlanboy/Dockerfiles/tree/main/Valkey)
+* [Memcached](https://github.com/wlanboy/Dockerfiles/tree/main/Memcached)
 
-## KVM
-* virsh kvm Windows 10 client
-https://github.com/wlanboy/Dockerfiles/tree/master/vagrant/windows
+## Observability
+* [Prometheus stack](https://github.com/wlanboy/Dockerfiles/tree/main/PromethusStack)
+* [ELK Stack](https://github.com/wlanboy/Dockerfiles/tree/main/Elk)
+
+## Developer Tools
+* [Gitea git server](https://github.com/wlanboy/Dockerfiles/tree/main/Gitea)
+* [Visual Studio Code Server](https://github.com/wlanboy/Dockerfiles/tree/main/Code-Server)
+* [Jenkins Master and Java build slave](https://github.com/wlanboy/Dockerfiles/tree/main/JenkinsStack)
+* [Artefactory (local artifact store)](https://github.com/wlanboy/Dockerfiles/tree/main/Artefactory)
+
+## Other Services
+* [Nextcloud](https://github.com/wlanboy/Dockerfiles/tree/main/Nextcloud)
+* [Hadoop Cluster](https://github.com/wlanboy/Dockerfiles/tree/main/Hadoop)
+
+## Docker Images
+* [arm64v8 Java base image](https://github.com/wlanboy/Dockerfiles/tree/main/arm64v8)
