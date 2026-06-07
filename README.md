@@ -18,7 +18,7 @@ Repository for Docker run scripts, compose files, and infrastructure configs.
 * [MariaDB](https://github.com/wlanboy/Dockerfiles/tree/main/MariaDB)
 * [Postgres](https://github.com/wlanboy/Dockerfiles/tree/main/Postgres)
 * [MongoDB](https://github.com/wlanboy/Dockerfiles/tree/main/MongoDB)
-* [CouchBase](https://github.com/wlanboy/Dockerfiles/tree/main/CouchBase)
+* [Couchbase](https://github.com/wlanboy/Dockerfiles/tree/main/Couchbase)
 * [InfluxDB](https://github.com/wlanboy/Dockerfiles/tree/main/InfluxDB)
 * [Solr](https://github.com/wlanboy/Dockerfiles/tree/main/Solr)
 
