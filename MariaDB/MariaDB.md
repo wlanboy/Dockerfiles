@@ -51,6 +51,20 @@ Bindet den Port ausschließlich an `127.0.0.1` – kein Zugriff von anderen Netz
 ```
 Lädt `lowmemory.cnf` als MariaDB-Konfiguration. Sinnvoll für VMs oder Systeme mit unter 512 MB RAM.
 
+Die wichtigsten Einstellungen in `lowmemory.cnf`:
+
+| Einstellung | Wert | Einsparung |
+|---|---|---|
+| `performance_schema` | `OFF` | 50–400 MB |
+| `aria_pagecache_buffer_size` | `4M` | ~124 MB vs. Standard |
+| `query_cache_size` | `0` | Cache deaktiviert (deprecated) |
+| `disable_log_bin` | `1` | Kein Binary-Log I/O |
+| `innodb_buffer_pool_size` | `10M` | ~246 MB vs. Standard |
+| `innodb_adaptive_hash_index` | `OFF` | InnoDB-Pufferspeicher |
+| `myisam_sort_buffer_size` | `4M` | ~508 MB vs. Standard |
+| `wait_timeout` | `180` | Idle-Verbindungen schneller freigeben |
+| `skip-name-resolve` | – | Kein DNS-Lookup bei Verbindungen |
+
 ## Verbindung testen
 
 ```bash
