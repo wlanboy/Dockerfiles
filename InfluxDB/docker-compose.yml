@@ -1,0 +1,19 @@
+services:
+  influxdb3-core:
+    image: influxdb:3-core
+    ports:
+      - "8181:8181"     # HTTP API + Web-UI → http://localhost:8181
+    command:
+      - influxdb3
+      - serve
+      - --node-id=node0         # Eindeutige Node-ID (relevant für Cluster-Setups)
+      - --object-store=file     # Lokales Dateisystem als Storage-Backend
+      - --data-dir=/var/lib/influxdb3/data
+    volumes:
+      - influxdb3-data:/var/lib/influxdb3/data   # Persistenter Speicher für Zeitreihendaten
+
+volumes:
+  # Named Volume bleibt auch nach "docker compose down" erhalten.
+  # Erst "docker compose down -v" löscht die Daten.
+  influxdb3-data:
+    driver: local
