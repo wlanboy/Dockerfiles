@@ -1,5 +1,6 @@
 # Start webtop instance
-Command to start a Ubuntu based webtop instance. You can now access a Ubuntu Desktop Client through your browser.
+
+Ubuntu-Desktop im Browser — kein VNC-Client nötig, Zugriff direkt über http://127.0.0.1:3000
 
 ```bash
 docker run -d \
@@ -17,7 +18,13 @@ docker run -d \
 ```
 
 ## access instance
+
+Browser-URL zum Öffnen des Desktop-Clients.
+
 * http://127.0.0.1:3000/
 
 ## find other versions
+
+Weitere verfügbare Desktop-Umgebungen (KDE, XFCE, etc.) und Architekturen in der offiziellen Doku.
+
 * https://docs.linuxserver.io/images/docker-webtop/#version-tags
