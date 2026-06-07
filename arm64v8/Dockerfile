@@ -1,4 +1,4 @@
-FROM arm64v8/eclipse-temurin:21-jre-ubi9-minimal
+FROM arm64v8/eclipse-temurin:25-jre-ubi10-minimal
 VOLUME /config
 VOLUME /tmp
 ARG JAR_FILE
