@@ -1,1 +1,0 @@
-docker run -d --name go-git-server --publish 8022:22 --publish 3000:3000 --volume /gogsdata:/data --restart unless-stopped gogs/gogs
