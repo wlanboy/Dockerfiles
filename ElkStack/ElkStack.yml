@@ -1,8 +1,6 @@
-version: '3.1'
-
 services:
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.3
+    image: elastic/elasticsearch:9.4.2
     restart: unless-stopped
     hostname: elastic
     deploy:
@@ -19,7 +17,7 @@ services:
     environment:
       discovery.type: "single-node"
   kibana:
-    image: docker.elastic.co/kibana/kibana:6.2.3
+    image: elastic/kibana:8.19.16
     restart: unless-stopped
     hostname: kibana
     deploy:
@@ -33,9 +31,9 @@ services:
     depends_on:
       - elasticsearch
   logstash:
-    image: docker.elastic.co/logstash/logstash:6.2.3
+    image: elastic/logstash:8.19.16
     restart: unless-stopped
-    hostname: logstash  
+    hostname: logstash
     volumes:
           - ./logstash:/usr/share/logstash/pipeline
     deploy:
