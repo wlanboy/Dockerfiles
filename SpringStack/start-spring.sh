@@ -1,1 +1,0 @@
-docker-compose -f SpringStack.yml up -d
