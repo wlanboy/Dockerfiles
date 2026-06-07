@@ -1,15 +1,17 @@
-version: '3'
-
 services:
   registry:
     image: registry:2
     ports:
-    - "5000:5000"
+      - "5000:5000"   # Standard-Port für private Docker Registries
     environment:
-      REGISTRY_AUTH: htpasswd
-      REGISTRY_AUTH_HTPASSWD_REALM: Registry
-      REGISTRY_AUTH_HTPASSWD_PATH: /auth/registry.password
-      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+      REGISTRY_AUTH: htpasswd                              # Authentifizierung via htpasswd-Datei aktivieren
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry               # Realm-Name im HTTP Basic Auth Dialog
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/registry.password # Pfad zur Passwort-Datei im Container
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data     # Speicherort für gepushte Images
     volumes:
-      - ./auth:/auth
-      - ./dockerregistry:/data
+      - ./auth:/auth                   # Passwort-Datei (erzeugt von pwd.sh)
+      - registry-data:/data            # persistenter Speicher für Image-Layers
+
+volumes:
+  registry-data:
+    driver: local
