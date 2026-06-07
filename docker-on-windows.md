@@ -1,74 +1,113 @@
 # Docker on Windows
-All powershell commmands to install wsl and a linux container to run docker containers in Windows.
 
+Docker ohne Docker Desktop auf Windows betreiben — via WSL2 und Debian.
 
-## Install WSL2 and prequisits
-Powershell with administator rights
-```
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-```
+## Install WSL2
 
-## Restart Windows
-```
-Restart-Computer
+Moderner Einzeiler — installiert WSL2 mit Ubuntu als Standard-Distribution. PowerShell als Administrator ausführen.
+
+```powershell
+wsl --install
 ```
 
-## Set correct version and install Debian
-```
-wsl --set-default-version 2
+Für Debian statt Ubuntu:
+
+```powershell
 wsl --install -d Debian
 ```
 
+Nach der Installation Windows neu starten und WSL-Benutzer anlegen.
+
 ## Get into Debian
+
+In die WSL2-Shell wechseln.
+
 ```
 wsl
 ```
 
-## Install Docker
-```
-sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+## Fix iptables (Debian/Ubuntu)
 
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+iptables auf legacy umstellen — nötig damit Docker-Netzwerke in WSL2 funktionieren.
+
+```bash
+sudo update-alternatives --config iptables
+# Option 1 (iptables-legacy) auswählen
+```
+
+## Install Docker
+
+Docker CE aus dem offiziellen Repository installieren.
+
+```bash
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io 
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-## Configure default iptables, Docker group and group id
-```
-update-alternatives --config iptables # Select option 1
+## Add user to Docker group
+
+Damit Docker ohne `sudo` verwendet werden kann.
+
+```bash
 sudo usermod -aG docker $USER
+```
+
+## Configure default iptables and group id
+
+GID der Docker-Gruppe auf einen festen Wert setzen (verhindert Konflikte bei mehreren WSL-Distros).
+
+```bash
 getent group | cut -d: -f3 | grep -E '^[0-9]{4}' | sort -g
 sudo sed -i -e 's/^\(docker:x\):[^:]\+/\1:30000/' /etc/group
 ```
 
-## Exit Debian and shutdown WSL
-```
+## Exit and restart WSL
+
+WSL vollständig neu starten damit Gruppenänderungen wirksam werden.
+
+```bash
 exit
 wsl --shutdown
+wsl
 ```
 
-## Start WSL2 Debian and start Docker daemon
-```
-wsl
+## Start Docker daemon
+
+Docker-Daemon im Hintergrund starten — in `.bashrc` eintragen für automatischen Start.
+
+```bash
 nohup sudo -b dockerd < /dev/null > /home/samuel/dockerd.log 2>&1
 ```
-> you can put that nohup command whereever you want (e.g. .bashrc)
 
-## Or you use the new systemd feature of wsl
-```
+## Or use systemd (recommended)
+
+Systemd in WSL2 aktivieren — dann startet Docker automatisch, kein manueller nohup-Befehl nötig.
+
+```bash
 cat <<EOF | sudo tee /etc/wsl.conf
 [boot]
 systemd=true
 EOF
+```
+
+Danach WSL neu starten: `wsl --shutdown`
+
+## Test installation
+
+Prüfen ob Docker korrekt läuft.
+
+```bash
+docker run hello-world
 ```
