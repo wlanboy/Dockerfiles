@@ -1,7 +1,12 @@
+# Pi Hole
+
+DNS-basierter Werbeblocker mit Web-UI.
+
 ## Pi Hole new password for web ui
-How to create or change password on Pi Hole Docker container.
+
+Passwort für die Pi Hole Web-UI im laufenden Container neu setzen.
 
 ```bash
-docker exec -it pihole /bin/bash 
+docker exec -it pihole /bin/bash
 > pihole -a -p
 ```
