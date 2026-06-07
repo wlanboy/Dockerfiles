@@ -12,7 +12,7 @@ add-apt-repository \
     $(lsb_release -cs) \
     stable" && \
 apt-get update && \
-apt-get -y install docker-ce openjdk-11-jdk maven
+apt-get -y install docker-ce openjdk-21-jdk maven
 RUN apt-get install -y docker-ce
 RUN usermod -a -G docker jenkins
 USER jenkins
